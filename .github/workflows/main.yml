@@ -13,4 +13,5 @@ jobs:
     timeout-minutes: 360
     steps:
       - run: |
-          docker run -e PARTIAL=true ${{ secrets.IMAGE }}
+          timeout 358m docker run -e PARTIAL=true ${{ secrets.IMAGE }}
+          echo $?
