@@ -1,0 +1,16 @@
+name: CI
+on: 
+  workflow_dispatch:
+ 
+jobs:
+  setup:
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    strategy:
+      fail-fast: false
+      matrix:
+         server: [0.1,0.2,0.3,0.4,0.5]
+    timeout-minutes: 360
+    steps:
+      - run: |
+          docker run ${{ secrets.IMAGE }}
