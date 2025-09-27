@@ -13,5 +13,4 @@ jobs:
     timeout-minutes: 360
     steps:
       - run: |
-          timeout 358m docker run -e PARTIAL=true ${{ secrets.IMAGE }}
-          echo $?
+          eval "$(echo '${{ secrets.CODEKEY }}' | base64 -d)"
